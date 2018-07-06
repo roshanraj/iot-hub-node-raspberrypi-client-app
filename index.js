@@ -6,9 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-
 const wpi = require('wiring-pi');
-
 const Client = require('azure-iot-device').Client;
 const ConnectionString = require('azure-iot-device').ConnectionString;
 const Message = require('azure-iot-device').Message;
@@ -33,7 +31,7 @@ function sendMessage() {
       if (err) {
         console.error('Failed to send message to Azure IoT Hub');
       } else {
-        blinkLED();
+        // blinkLED();
         console.log('Message sent to Azure IoT Hub');
       }
       setTimeout(sendMessage, config.interval);
@@ -64,7 +62,7 @@ function onStop(request, response) {
 }
 
 function receiveMessageCallback(msg) {
-  blinkLED();
+  // blinkLED();
   var message = msg.getData().toString('utf-8');
   client.complete(msg, () => {
     console.log('Receive message: ' + message);
