@@ -3,7 +3,7 @@
 */
 'use strict';
 
-const Bme280Sensor = require('./bme280Sensor.js');
+
 const SimulatedSensor = require('./simulatedSensor.js');
 
 function MessageProcessor(option) {
@@ -11,7 +11,7 @@ function MessageProcessor(option) {
     deviceId: '[Unknown device] node',
     temperatureAlert: 30
   }, option);
-  this.sensor = option.simulatedData ? new SimulatedSensor() : new Bme280Sensor(option.i2cOption);
+  this.sensor = new SimulatedSensor();
   this.deviceId = option.deviceId;
   this.temperatureAlert = option.temperatureAlert
   this.sensor.init(() => {

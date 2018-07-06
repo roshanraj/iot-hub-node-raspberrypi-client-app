@@ -6,7 +6,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const wpi = require('wiring-pi');
+
 const Client = require('azure-iot-device').Client;
 const ConnectionString = require('azure-iot-device').ConnectionString;
 const Message = require('azure-iot-device').Message;
@@ -71,10 +71,10 @@ function receiveMessageCallback(msg) {
 
 function blinkLED() {
   // Light up LED for 500 ms
-  wpi.digitalWrite(config.LEDPin, 1);
-  setTimeout(function () {
-    wpi.digitalWrite(config.LEDPin, 0);
-  }, 500);
+//  wpi.digitalWrite(config.LEDPin, 1);
+  //setTimeout(function () {
+    //wpi.digitalWrite(config.LEDPin, 0);
+ // }, 500);
 }
 
 function initClient(connectionStringParam, credentialPath) {
@@ -111,8 +111,8 @@ function initClient(connectionStringParam, credentialPath) {
   }
 
   // set up wiring
-  wpi.setup('wpi');
-  wpi.pinMode(config.LEDPin, wpi.OUTPUT);
+  //wpi.setup('wpi');
+  //wpi.pinMode(config.LEDPin, wpi.OUTPUT);
   messageProcessor = new MessageProcessor(config);
 
   try {
